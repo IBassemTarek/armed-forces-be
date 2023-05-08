@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { JwtUser } from 'src/guards/jwt.strategy';
+import { JwtUser } from '../guards/jwt.strategy';
 import { CreateFileDto } from './dto/create-file.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { User, UserDocument } from 'src/user/entities/user.entity';
+import { User, UserDocument } from '../user/entities/user.entity';
 import { Model } from 'mongoose';
 import { Store, StoreDocument } from './entities/store.entity';
 import { v4 as uuidv4 } from 'uuid';

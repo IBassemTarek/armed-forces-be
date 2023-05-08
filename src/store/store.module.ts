@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 import { StoreService } from './store.service';
 import { StoreController } from './store.controller';
-import { MulterModule } from '@nestjs/platform-express';
 import { MongooseModule } from '@nestjs/mongoose';
-import { User, UserSchema } from 'src/user/entities/user.entity';
+import { User, UserSchema } from '../user/entities/user.entity';
 import { Store, StoreSchema } from './entities/store.entity';
 
 @Module({

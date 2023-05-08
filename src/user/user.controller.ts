@@ -1,13 +1,13 @@
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/decorators/public.decorator';
+import { Public } from '../decorators/public.decorator';
 import { LoginUserDto } from './dto/login-user.dto';
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserService } from './user.service';
 import { User } from './entities/user.entity';
-import { GetUser } from 'src/decorators/user.decorator';
-import { JwtUser } from 'src/guards/jwt.strategy';
+import { GetUser } from '../decorators/user.decorator';
+import { JwtUser } from '../guards/jwt.strategy';
 
 @ApiTags('user')
 @Controller('user')

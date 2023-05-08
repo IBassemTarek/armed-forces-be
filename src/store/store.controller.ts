@@ -17,8 +17,8 @@ import { ApiBearerAuth, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { diskStorage } from 'multer';
 import { extname, join } from 'path';
 import { Observable, of } from 'rxjs';
-import { GetUser } from 'src/decorators/user.decorator';
-import { JwtUser } from 'src/guards/jwt.strategy';
+import { JwtUser } from '../guards/jwt.strategy';
+import { GetUser } from '../decorators/user.decorator';
 import { UpdateFileDto } from './dto/update-file.dto';
 
 @ApiTags('store')
