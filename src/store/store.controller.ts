@@ -30,16 +30,19 @@ export class StoreController {
   @ApiBearerAuth()
   @UseInterceptors(
     FileInterceptor('file', {
-      storage: diskStorage({
-        destination: './upload',
-        filename: (req, file, cb) => {
-          const uniqueSuffix =
-            Date.now() + '-' + Math.round(Math.random() * 1e9);
-          const ext = extname(file.originalname);
-          const fileName = `${file.originalname}-${uniqueSuffix}${ext}`;
-          cb(null, fileName);
-        },
-      }),
+      storage:
+        process.env.production === 'true'
+          ? undefined
+          : diskStorage({
+              destination: './upload',
+              filename: (req, file, cb) => {
+                const uniqueSuffix =
+                  Date.now() + '-' + Math.round(Math.random() * 1e9);
+                const ext = extname(file.originalname);
+                const fileName = `${file.originalname}-${uniqueSuffix}${ext}`;
+                cb(null, fileName);
+              },
+            }),
     }),
   )
   @ApiConsumes('multipart/form-data')
@@ -52,7 +55,7 @@ export class StoreController {
       file,
       dto,
       user,
-      file.originalname,
+      file?.originalname,
     );
   }
 
@@ -78,16 +81,19 @@ export class StoreController {
   @Patch(':id')
   @UseInterceptors(
     FileInterceptor('file', {
-      storage: diskStorage({
-        destination: './upload',
-        filename: (req, file, cb) => {
-          const uniqueSuffix =
-            Date.now() + '-' + Math.round(Math.random() * 1e9);
-          const ext = extname(file.originalname);
-          const fileName = `${file.originalname}-${uniqueSuffix}${ext}`;
-          cb(null, fileName);
-        },
-      }),
+      storage:
+        process.env.production === 'true'
+          ? undefined
+          : diskStorage({
+              destination: './upload',
+              filename: (req, file, cb) => {
+                const uniqueSuffix =
+                  Date.now() + '-' + Math.round(Math.random() * 1e9);
+                const ext = extname(file.originalname);
+                const fileName = `${file.originalname}-${uniqueSuffix}${ext}`;
+                cb(null, fileName);
+              },
+            }),
     }),
   )
   @ApiConsumes('multipart/form-data')

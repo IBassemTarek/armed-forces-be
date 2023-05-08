@@ -26,7 +26,7 @@ export class StoreService {
       id: uuidv4(),
       title: dto.title ? dto.title : originalName,
       branch: dto.branch,
-      file: file.filename,
+      file: file?.filename,
       author: userData.name,
       author_id: user.userId,
     });
